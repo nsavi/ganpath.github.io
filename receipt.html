@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Booking Receipt</title>
+</head>
+<body>
+    <header>
+        <h1>Booking Receipt</h1>
+    </header>
+
+    <div class="receipt-details">
+        <h2 style = "font-size:40px;">Booking Details</h2>
+        <p>=============================================================================================================================================================================================================</p>
+        <p style = "font-size:25px;"><strong>Name:   Krishnan</strong> <span id="receipt-name"></span></p>
+        <p style = "font-size:25px;"> <strong>Email:   templeview@gmail.com</strong> <span id="receipt-email"></span></p>
+        <p style = "font-size:25px;"><strong>Phone Number: 8462513579</strong> <span id="receipt-phone"></span></p>
+        <p style = "font-size:25px;"><strong>Check-In Date: 10/11/2023</strong> <span id="receipt-check-in"></span></p>
+        <p style = "font-size:25px;"><strong>Check-Out Date: 12/11/2023</strong> <span id="receipt-check-out"></span></p>
+        <p style = "font-size:25px;"><strong>Number of Guests: 2</strong> <span id="receipt-guests"></span></p>
+        <p style = "font-size:25px;"><strong>Room Type: Standard</strong> <span id="receipt-room-type"></span></p>
+        <p style = "color:blue;font-size:30px;">Total Amount : Rs. 3000</p>
+        <p style = "color:blue;font-size:30px;">Transacrion ID: 85749 9067 068</p>
+        <h1>Thank You for Booking !!</h1>
+    </div>
+
+    <script>
+        // Retrieve data from the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Check if the query parameters exist and populate the receipt
+        if (urlParams.has('name') && urlParams.has('email') && urlParams.has('phone') && urlParams.has('checkin') && urlParams.has('checkout') && urlParams.has('guests') && urlParams.has('roomtype')) {
+            const name = urlParams.get('name');
+            const email = urlParams.get('email');
+            const phone = urlParams.get('phone');
+            const checkin = urlParams.get('checkin');
+            const checkout = urlParams.get('checkout');
+            const guests = urlParams.get('guests');
+            const roomType = urlParams.get('roomtype');
+
+            document.getElementById('receipt-name').textContent = name;
+            document.getElementById('receipt-email').textContent = email;
+            document.getElementById('receipt-phone').textContent = phone;
+            document.getElementById('receipt-check-in').textContent = checkin;
+            document.getElementById('receipt-check-out').textContent = checkout;
+            document.getElementById('receipt-guests').textContent = guests;
+            document.getElementById('receipt-room-type').textContent = roomType;
+        }
+    </script>
+</body>
+</html>
